@@ -1,22 +1,18 @@
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
-const app = new express();
+ const express = require("express");
+ const path = require("path");
+ const bodyParser = require("body-parser");
 
-app.use(bodyParser.json()); // 解析 application/json 类型数据
-app.use(express.static('./views'));
-app.use(express.static(path.join(__dirname,'public')));
+ const app = new  express();
 
-app.listen(3000);
+ app.use(bodyParser.json());
+ app.use(express.static("./views"));
+ app.use(express.static(path.join(__dirname, "public")))
+ // app.use(express.static("public");
 
-console.log("web server started on port 3000");
+ app.listen(3000,()=>{
+     console.log(" server start on port 3000 success!");
+ });
 
-const dbControl = require('./routes/db.js');
-
-app.get('/db',dbControl.remove);
-
-app.get('/items', dbControl.findAll);
-
-app.post('/items', dbControl.save)
-
-app.delete('/items');
+ app.get("/a" , (req,res)=>{
+     res.send("first page");
+ })
