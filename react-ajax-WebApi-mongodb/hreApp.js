@@ -17,6 +17,6 @@ app.get('/db',dbControl.remove);
 
 app.get('/items', dbControl.findAll);
 
-app.post('/items', dbControl.save)
+app.post('/items', dbControl.save);
 
 app.delete('/items');

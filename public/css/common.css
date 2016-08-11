@@ -50,3 +50,31 @@ span {
     text-decoration: line-through;
 }
 
+.delete{
+    position: relative;
+    float:right;
+    top:12px;
+}
+
+.footer-item{
+    box-shadow: 3px 3px 3px #d1d0d0;
+}
+
+.footer button{
+  margin-left:2px;
+    font-size:14px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.footer span{
+    font-size:16px;
+}
+
+.clearCompleted {
+    display: inline;
+    position: relative;
+    /*right: -30px;*/
+    color: dimgrey;
+    cursor: pointer;
+}

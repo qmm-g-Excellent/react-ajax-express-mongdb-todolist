@@ -78,7 +78,7 @@ const App = React.createClass({
                        onKeyDown={this.addItem}/>
             </div>
 
-            <div>
+            <div className="footer-item">
                 <Items items={this.state.parms}
                       onRemove={this.deleteItem}
                       onExchange={this.exchange}/>
@@ -115,12 +115,16 @@ const Footer = React.createClass({
     render:function(){
         var leftItems = this.props.parms.filter(item => !item.isChoose).length;
        const  left = leftItems > 1 ? `${leftItems} left Items`: `${leftItems} left Item`;
-        return <div>
+        return <div className="footer">
             <span>{left}</span>
-            <button onClick={this.props.onAll}>All </button>
-            <button onClick={this.props.onActive}>Active </button>
-            <button onClick={this.props.onCompleted}>Completed </button>
-            <button onClick={this.props.onClearCompleted}>clearCompleted </button>
+            <button className="btn btn-primary"
+                    onClick={this.props.onAll}>All </button>
+            <button className="btn btn-info"
+                    onClick={this.props.onActive}>Active </button>
+            <button className="btn btn-success"
+                    onClick={this.props.onCompleted}>Completed </button>
+            <button className="tn btn-danger clearCompleted"
+                    onClick={this.props.onClearCompleted}>clearCompleted </button>
         </div>
     }
 });
