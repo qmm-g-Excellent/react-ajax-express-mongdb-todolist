@@ -27,3 +27,26 @@ span {
     left: 10px;
     font-size:30px;
 }
+
+.item{
+    height:50px;
+    line-height:50px;
+    border:1px solid #e4b9b9;
+    border-top:none;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.item input {
+    margin-right:10px;
+    vertical-align: middle;
+    height:20px;
+    width:20px;
+    border-radius:50px;
+    border: 1px solid red;
+}
+
+.item input[checked=true] .itemTitle{
+    text-decoration: line-through;
+}
+

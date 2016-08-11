@@ -11,7 +11,7 @@ exports.save = function (req, res) {
     insertItem(db, item, function () {
       db.close();
     });
-    res.send('我是后台数据');
+    res.send('');
   });
 
 };
