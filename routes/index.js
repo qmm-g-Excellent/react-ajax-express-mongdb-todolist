@@ -3,8 +3,8 @@ const router = express.Router();
 const action = require("./action/userAction");
 
 router.get('/result',action.findAll);
-router.post("/docs",action.save);
+router.post("/doc",action.save);
 // router.put('/items',action.update);
-// router.delete('/item',action.remove);
+router.delete('/item',action.remove);
 
 module.exports = router;

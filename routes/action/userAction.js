@@ -12,4 +12,9 @@ exports.findAll = function(req,res){
     });
 };
 
+exports.remove = function(req,res){
+    db.remove(res.body,function(result){
+        res.json(result);
+    })
+};
 

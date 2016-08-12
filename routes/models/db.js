@@ -25,4 +25,13 @@ exports.findAll = function(callback){
     })
 };
 
-
+exports.remove = function(item,callback){
+    MongoClient.connect(url,function(err,db){
+        const collection = db.collection("allItems");
+        collection.deleteOne(item,function(err, result){
+            assert.equal(err,null);
+            callback(result);
+        });
+        db.close();
+    })
+};

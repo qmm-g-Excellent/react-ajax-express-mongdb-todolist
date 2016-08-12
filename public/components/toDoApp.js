@@ -28,7 +28,7 @@ const App = React.createClass({
             this.setState({input: ""});
             $.ajax({
                 type: "POST",
-                url: "/docs",
+                url: "/doc",
                 contentType: 'application/json',
                 data: JSON.stringify(item),
                 success: function (data) {
@@ -41,6 +41,13 @@ const App = React.createClass({
         items.splice(index, 1);
         this.setState({items});
         this.setState({temp: items});
+        $.ajax({
+            type:"POST",
+            url:"/item",
+            contentType:"application/json",
+            data:JSON.stringify(items[index]),
+            success:function(data){}
+        })
     },
     exchange: function (index) {
         const item = this.state.items[index];
