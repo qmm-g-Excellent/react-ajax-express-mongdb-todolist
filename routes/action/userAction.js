@@ -2,7 +2,6 @@ const db  = require("../models/db");
 
 exports.save = function(req,res){
    db.insertItem(req.body, function(result){
-       console.log("bdidbi");
        res.json("").end();
    })
 };

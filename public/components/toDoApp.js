@@ -7,7 +7,7 @@ const App = React.createClass({
         }
     },
     componentDidMount: function () {
-        $.get("/docs", function (items) {
+        $.get("/result", function (items) {
                 this.setState({items});
                 this.setState({temp: this.state.items});
             }.bind(this)
@@ -28,13 +28,12 @@ const App = React.createClass({
             this.setState({input: ""});
             $.ajax({
                 type: "POST",
-                url: "/a/docs",
+                url: "/docs",
                 contentType: 'application/json',
-                data: "biasbdasbd",
-                // data: JSON.stringify(item),
+                data: JSON.stringify(item),
                 success: function (data) {
                 }
-            });
+            })
         }
     },
     deleteItem: function (index) {
@@ -75,7 +74,7 @@ const App = React.createClass({
     render: function () {
         let bottom;
         if (this.state.items.length > 0) {
-            bottom = <Bottom parms={this.state.temp}
+            bottom = <Bottom temp={this.state.temp}
                              onAll={this.all}
                              onActive={this.active}
                              onCompleted={this.completed}

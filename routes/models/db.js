@@ -7,6 +7,7 @@ exports.insertItem = function(data,callback){
     MongoClient.connect(url,function(err,db){
         const collection =  db.collection("allItems");
         collection.insert(data,function(err, result){
+            assert.equal(err,null);
             callback(result);
         });
         db.close();
@@ -23,3 +24,5 @@ exports.findAll = function(callback){
         db.close();
     })
 };
+
+
