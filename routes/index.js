@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const active = require("./active/uesrAction.js");
+const action = require("./action/userAction");
 
-router.get('/docs',active.findAll);
-router.post("/docs",active.save);
-router.update('/items',active.update);
-router.delete('/item',active.remove);
+router.get('/docs',action.findAll);
+router.post("/docs",action.save);
+// router.put('/items',action.update);
+// router.delete('/item',action.remove);
 
 module.exports = router;

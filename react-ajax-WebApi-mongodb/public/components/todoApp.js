@@ -3,14 +3,14 @@ const App = React.createClass({
         return {
             input: '',
             items: [],
-            parms: []
+            temp: []
         }
     },
     componentDidMount: function () {
         $.get('/items').then(data => {
             console.log(data);
             this.setState({items: data});
-            this.setState({parms: this.state.items});
+            this.setState({temp: this.state.items});
         });
     },
     add: function (event) {
@@ -22,7 +22,7 @@ const App = React.createClass({
             item.isChose = false;
             items.push(item);
             this.setState({items});
-            this.setState({parms: this.state.items});
+            this.setState({temp: this.state.items});
             // console.log(item);
             // $.post('/items',{data:JSON.stringify(item)}, function (data) {
             // },"json")
@@ -43,34 +43,34 @@ const App = React.createClass({
     remove: function (i) {
         this.state.items.splice(i, 1);
         this.setState({items: this.state.items});
-        this.setState({parms: this.state.items});
+        this.setState({temp: this.state.items});
     }
     ,
     exchange: function (i) {
         const item = this.state.items[i];
         item.isChose = !item.isChose;
         this.setState({items: this.state.items});
-        this.setState({parms: this.state.items});
+        this.setState({temp: this.state.items});
     }
     ,
     completed: function () {
         const parms = this.state.items.filter((item)=>item.isChose);
-        this.setState({parms});
+        this.setState({temp});
     }
     ,
     active: function () {
         const parms = this.state.items.filter((item)=>!item.isChose);
-        this.setState({parms});
+        this.setState({temp});
     }
     ,
     all: function () {
-        this.setState({parms: this.state.items});
+        this.setState({temp: this.state.items});
     }
     ,
     clearCompleted: function () {
         const items = this.state.items.filter((item)=>!item.isChose);
         this.setState({items});
-        this.setState({parms: items});
+        this.setState({temp: items});
     }
     ,
     chooseAll: function () {
@@ -85,7 +85,7 @@ const App = React.createClass({
         let footer;
         if (this.state.items.length > 0) {
             footer =
-                <Footer items={this.state.parms}
+                <Footer items={this.state.temp}
                         onCompleted={this.completed}
                         onActive={this.active}
                         onAll={this.all}
@@ -105,7 +105,7 @@ const App = React.createClass({
                        onChange={this.change}/>
             </div>
             <div className="items-footer">
-                <Items items={this.state.parms}
+                <Items items={this.state.temp}
                        onRemove={this.remove}
                        onExchange={this.exchange}/>
                 {footer}
