@@ -105,3 +105,4 @@ fabric.properties
 # Created by https://www.gitignore.io/api/node_modules
 
 #!! ERROR: node_modules is undefined. Use list command to see defined gitignore types !!#
+.idea
